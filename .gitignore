@@ -1,0 +1,30 @@
+# Node modules
+node_modules/
+
+# Environment variables
+.env
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Sequelize migration logs (caso esteja usando)
+sequelize-meta.json
+
+# Editor/IDE configs
+.vscode/
+.idea/
+
+# Build artifacts (caso compile algo no futuro)
+dist/
+build/
+
+# Optional coverage and test artifacts
+coverage
