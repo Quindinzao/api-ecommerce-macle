@@ -27,4 +27,4 @@ dist/
 build/
 
 # Optional coverage and test artifacts
-coverage
+coverage/

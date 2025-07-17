@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken');
-const User = require('../models/User');
+const { User } = require('../models');
 
 module.exports = async (req, res, next) => {
   const token = req.headers.authorization?.split(' ')[1];
@@ -12,6 +12,7 @@ module.exports = async (req, res, next) => {
     if (!user) return res.status(404).json({ error: 'Usuário não encontrado' });
 
     req.userId = user.id;
+    req.userRole = user.role;
     next();
   } catch (err) {
     res.status(401).json({ error: 'Token inválido' });

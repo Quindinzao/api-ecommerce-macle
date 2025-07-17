@@ -1,18 +1,20 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../config/db');
-const User = require('./User');
 
 const Order = sequelize.define('Order', {
-  total: DataTypes.FLOAT,
-  paymentMethod: DataTypes.STRING,
-  address: DataTypes.STRING,
+  totalPrice: {
+    type: DataTypes.FLOAT,
+    allowNull: false
+  },
+  address: {
+    type: DataTypes.STRING,
+    allowNull: true
+  },
   status: {
     type: DataTypes.STRING,
+    allowNull: false,
     defaultValue: 'pending'
   }
 });
-
-User.hasMany(Order);
-Order.belongsTo(User);
 
 module.exports = Order;
