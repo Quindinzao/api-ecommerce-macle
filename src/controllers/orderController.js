@@ -3,7 +3,7 @@ const { Order, OrderItem, Product, User } = require('../models');
 exports.createOrder = async (req, res) => {
   try {
     const { userId } = req.params;
-    const { items, address, status } = req.body;
+    const { items, address, paymentMethod, status } = req.body;
 
     if (!items || items.length === 0) {
       return res.status(400).json({ message: 'Itens do pedido são obrigatórios.' });
@@ -33,6 +33,7 @@ exports.createOrder = async (req, res) => {
       address: address || null,
       status,
       totalPrice,
+      paymentMethod
     });
 
     for (const item of orderItemsData) {

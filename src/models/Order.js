@@ -6,6 +6,11 @@ const Order = sequelize.define('Order', {
     type: DataTypes.FLOAT,
     allowNull: false
   },
+  paymentMethod: {
+    type: DataTypes.STRING,
+    allowNull: false,
+    defaultValue: 'dinheiro'
+  },
   address: {
     type: DataTypes.STRING,
     allowNull: true
@@ -13,7 +18,7 @@ const Order = sequelize.define('Order', {
   status: {
     type: DataTypes.STRING,
     allowNull: false,
-    defaultValue: 'pending'
+    defaultValue: 'pendente'
   }
 });
 
