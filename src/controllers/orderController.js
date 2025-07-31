@@ -85,11 +85,10 @@ exports.getOrdersByStatus = async (req, res) => {
 
 exports.getOrdersByUserId = async (req, res) => {
   const { userId } = req.params;
-  const { status } = req.query;
 
   try {
     const orders = await Order.findAll({
-      where: { userId, status },
+      where: { userId },
       include: [
         {
           model: OrderItem,
