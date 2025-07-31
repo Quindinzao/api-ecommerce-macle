@@ -65,7 +65,7 @@ exports.getOrdersByStatus = async (req, res) => {
           include: [
             {
               model: Product,
-              attributes: ['id', 'name', 'price']
+              attributes: ['id', 'name', 'price', 'image', 'description']
             }
           ]
         },
@@ -96,7 +96,7 @@ exports.getOrdersByUserId = async (req, res) => {
           include: [
             {
               model: Product,
-              attributes: ['id', 'name', 'price']
+              attributes: ['id', 'name', 'price', 'image', 'description']
             }
           ]
         },

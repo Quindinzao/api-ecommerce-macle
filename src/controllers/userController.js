@@ -22,7 +22,11 @@ exports.login = async (req, res) => {
     res.json({
       message: 'Login bem-sucedido',
       token,
-      user: { username: user.username, role: user.role }
+      user: { 
+        id: user.id, 
+        username: user.username, 
+        role: user.role 
+      }
     });
   } catch (error) {
     res.status(400).json({ error: error.message });
