@@ -38,13 +38,13 @@ exports.createProduct = async (req, res) => {
   try {
     let imageData = null;
     if (image && typeof image === 'string' && image.startsWith('data:')) {
-      // Remove o prefixo 'data:image/...;base64,' se existir
       imageData = image.split(',')[1];
     }
 
     const product = await Product.create({ name, image: imageData, price, description });
     res.status(200).json(product);
   } catch (err) {
+    console.log({err})
     res.status(400).json({ error: 'Erro ao criar produto' });
   }
 };
