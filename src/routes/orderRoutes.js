@@ -4,6 +4,7 @@ const orderController = require('../controllers/orderController');
 const auth = require('../middlewares/auth');
 const isAdmin = require('../middlewares/isAdmin');
 
+router.get('/', auth, orderController.getAllOrders);
 router.post('/user/:userId', auth, orderController.createOrder);
 router.put('/order/:id', auth, orderController.updateOrder);
 router.get('/user/:userId', auth, orderController.getOrdersByUserId);

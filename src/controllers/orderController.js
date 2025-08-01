@@ -53,6 +53,33 @@ exports.createOrder = async (req, res) => {
   }
 };
 
+exports.getAllOrders = async (req, res) => {
+  try {
+    const orders = await Order.findAll({
+      include: [
+        {
+          model: OrderItem,
+          include: [
+            {
+              model: Product,
+              attributes: ['id', 'name', 'price', 'image', 'description']
+            }
+          ]
+        },
+        {
+          model: User,
+          attributes: ['id', 'username'] 
+        }
+      ]
+    });
+
+    res.json(orders);
+  } catch (error) {
+    console.error('Erro ao buscar todos os pedidos:', error);
+    res.status(500).json({ message: 'Erro ao buscar pedidos.' });
+  }
+}
+
 exports.getOrdersByStatus = async (req, res) => {
   const { status } = req.query;
 
